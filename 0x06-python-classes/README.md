@@ -1,0 +1,5 @@
+In Python, classes are a way to bundle data and functionality together. They are used to create objects, which are instances of a class. Classes serve as blueprints for creating objects, and they encapsulate attributes (data) and methods (functions) that operate on that data.
+
+Here's a brief overview of some key concepts related to Python classes:
+
+Attributes: Variables within a class are called attributes. They represent the data associated with the class.Methods: Functions within a class are called methods. They define the behavior of the class and operate on its attributes.Instances: Objects created from a class are instances. Each instance has its own set of attributes but shares the same methods defined by the class.Inheritance: Classes can inherit attributes and methods from other classes, creating a hierarchy of classes.Encapsulation: The concept of bundling data and methods within a class, and restricting access to certain components using access modifiers like private, protected, and public.Polymorphism: The ability of different classes to be used interchangeably.
