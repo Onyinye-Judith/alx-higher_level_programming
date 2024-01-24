@@ -1,67 +1,102 @@
 #!/usr/bin/python3
-class Node:
-    def __init__(self, data, next_node=None):
-        """Defines a node of a singly linked list"""
-        self.data = data
-        self.next_node = next_node
+"""Defines a class Square"""
+
+
+class Square:
+    """
+    Class that defines properties of square by: (based on 5-square.py).
+
+    Attributes:
+        size: size of a square (1 side).
+    """
+    def __init__(self, size=0, position=(0, 0)):
+        """Creates new instances of square.
+
+        Args:
+            __size (int): size of the square (1 side).
+            __position (tuple): position of the square.
+        """
+        self.size = size
+        self.position = position
+
+    def area(self):
+        """Calculates the area of square.
+
+        Returns: the current square area.
+        """
+        return self.__size ** 2
 
     @property
-    def data(self):
-        """data getter"""
-        return self.__data
+    def size(self):
+        """Returns the size of a square
+        """
+        return self.__size
 
-    @data.setter
-    def data(self, value):
-        """data setter"""
-        if type(value) != int:
-            raise TypeError("data must be an integer")
-        self.__data = value
+    @size.setter
+    def size(self, value):
+        """Property setter for size.
+
+        Args:
+            value (int): size of a square (1 side).
+
+        Raises:
+            TypeError: size must be an integer.
+            ValueError: size must be >= 0.
+        """
+        if not isinstance(value, int):
+            raise TypeError("size must be an integer")
+        if value < 0:
+            raise ValueError("size must be >= 0")
+        self.__size = value
 
     @property
-    def next_node(self):
-        """next_node getter"""
-        return self.__next_node
+    def position(self):
+        """Returns the position of the square
+        """
+        return self.__position
 
-    @next_node.setter
-    def next_node(self, value):
-        """next_node setter"""
-        if value is not None and type(value) is not Node:
-            raise TypeError("next_node must be a Node object")
-        self.__next_node = value
+    @position.setter
+    def position(self, value):
+        """Property setter for position.
 
+        Args:
+            value (tuple): position of the square.
 
-class SinglyLinkedList:
-    def __init__(self):
-        """Defines a singly linked list"""
-        self.__head = None
+        Raises:
+            TypeError: position must be a tuple of 2 positive integers
+        """
+        if not isinstance(value, tuple):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if len(value) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if not isinstance(value[0], int) or not isinstance(value[1], int):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if value[0] < 0 or value[1] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
 
-    def sorted_insert(self, value):
-        new = Node(value)
-        tmp = self.__head
-        add_start = False
+    def my_print(self):
+        """prints in stdout the square with the character #
+        """
 
-        if not self.__head:
-            self.__head = new
-            new.next_node = None
+        if self.__size == 0:
+            print()
         else:
-            if value < self.__head.data:
-                add_start = True
-            while tmp.next_node and value > tmp.next_node.data\
-                    and not add_start:
-                tmp = tmp.next_node
-            if not add_start:
-                    new.next_node = tmp.next_node
-                    tmp.next_node = new
-            else:
-                new.next_node = tmp
-                self.__head = new
-            new.data = value
+            for j in range(self.__position[1]):
+                print()
+            for i in range(self.__size):
+                for k in range(self.__position[0]):
+                    print(" ",  end="")
+                print("#" * (self.__size))
 
     def __str__(self):
-        s = ""
-        current = self.__head
+        """Prints square offsetting it by position with symbol #
 
-        while current:
-            s += str(current.data) + '\n'
-            current = current.next_node
-        return s[: -1]
+        Returns: The square.
+        """
+        if self.__size == 0:
+            return ''
+        new_lines = '\n' * self.position[1]
+        spaces = ' ' * self.position[0]
+        hashes = '#' * self.size
+        return new_lines + '\n'.join(spaces + hashes for e in range(self.size))
