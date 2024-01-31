@@ -1,0 +1,1 @@
+In Python, we can say everything is an object. For instance, a data type, like an integer or string, internally is treated as an object, not as a data type; therefore, data types have methods and attributes
