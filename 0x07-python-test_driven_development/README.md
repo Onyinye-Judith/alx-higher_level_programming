@@ -1,0 +1,1 @@
+The process of TDD involves writing a test for a specific feature or behavior, running the test and seeing it fail, then writing the code to make the test pass, and finally refactoring the code if necessary. This process is repeated for each feature or behavior of the software.
