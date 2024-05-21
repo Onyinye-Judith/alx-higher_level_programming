@@ -1,14 +1,5 @@
-CREATE TABLE IF NOT EXISTS new_table (
-	id INT,
-	username VARCHAR(256),
-	points INT
-	);
-
-	INSERT INTO new_table (id, username, points)
-	VALUES
-	(1, "User1", 15),
-	(2, "User2", 7),
-	(3, "User3", 20),
-	(4, "User4", 12);CREATE TABLE IF NOT EXISTS new_table (
-		id INT,
-	
+-- a script that creates a table second_table in the database hbtn_0c_0 in MySQL server and add multiples rows
+CREATE TABLE IF NOT EXISTS second_table (id INT, name VARCHAR(256), score INT);
+INSERT INTO second_table (id, name, score) VALUES (1, "John", 10),  (2, "Alex", 3),
+(3, "Bob", 14),
+(4, "George", 8);
