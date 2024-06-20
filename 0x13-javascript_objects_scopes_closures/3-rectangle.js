@@ -1,3 +1,4 @@
+#!/usr/bin/node
 class Rectangle {
 	  constructor(w, h) {
 		      if (typeof w !== 'number' || typeof h !== 'number') {
@@ -19,4 +20,4 @@ class Rectangle {
 			          }
 		    }
 }
-
+export default Rectangle;
